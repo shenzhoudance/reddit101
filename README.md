@@ -1,24 +1,21 @@
-# README
+# How to build a Reddit or Hacker News Style Web App in Rails
+```
+rails new reddit
+cd reddit
+git init
+git status
+git add .
+git commit -m "Commit Initial"
+```
+```
+git checkout -b link_scaffold
+rails g scaffold links title:string url:string
+rake db:migrate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+root 'links#index'
+```
+```
+git status
+git add .
+git commit -m "add link_scaffold"
+```
