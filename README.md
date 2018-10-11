@@ -33,3 +33,27 @@ git checkout master
 git merge link_scaffold
 git push origin master
 ```
+
+# 添加一个 add_user 的分支
+```
+git checkout -b add_user
+gem 'devise', '~> 4.5'
+bundle install
+rails g devise:install
+rails g devise views
+rails g devise User
+rake db:migrate
+```
+# 注册一个用户的数据操作
+```
+rails c
+@user = User.find
+exit
+
+```
+# 本地保存修改的代码
+```
+git status
+git add .
+git commit -m “add devise and create user model”
+```
