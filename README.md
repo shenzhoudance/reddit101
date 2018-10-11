@@ -55,5 +55,55 @@ exit
 ```
 git status
 git add .
-git commit -m “add devise and create user model”
+git commit -m "add devise and create user mode"
+```
+
+#功能和用户的对应关系
+app/models/user.rb
+belongs_to :links
+app/models/link.rb
+has_many :user
+rails g migration add_user_id_to_links user_id:integer:index
+rake db:migrate
+```
+2.3.1 :010 >rails c
+2.3.1 :010 >Link
+2.3.1 :010 >Link.connection
+2.3.1 :010 >Link
+```
+```
+ => Link(id: integer, title: string, url: string, created_at: datetime, updated_at: datetime, user_id: integer)
+```
+2.3.1 :010 >exit
+
+git status
+git add .
+git commit -m "Add Association Between Link and User"
+
+app/controllers/links_controller.rb
+```
+Link.new
+改为：current_user.links.build（创建新建必须是用户）
+添加：before_action :authenticate_user!, except: [:index, :show]（不是用户就需要注册用户）
+```
+
+```
+2.3.1 :010 >rails c
+2.3.1 :010 >Link
+2.3.1 :010 >Link.connection
+2.3.1 :010 >@link = Link.last
+```
+Link Load (0.2ms)  SELECT  "links".* FROM "links" ORDER BY "links"."id" DESC LIMIT ?  [["LIMIT", 1]]
+=> #<Link id: 3, title: "才华横溢", url: "", created_at: "2018-10-11 08:47:07", updated_at: "2018-10-11 08:47:07", user_id: 1>
+```
+2.3.1 :010 >exit
+```
+# 数据用户的保存
+```
+rails c
+@link = Link.last
+@user = User.first
+@link = Link.find(2)
+@link.user = User.first
+@link.save
 ```
