@@ -28,7 +28,7 @@ git add .
 git commit -m "add link_scaffold"
 git push origin link_scaffold
 
-两种推送云端的方法
+# 两种推送云端的方法
 git checkout master
 git merge link_scaffold
 git push origin master
