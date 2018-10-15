@@ -1,5 +1,7 @@
 # How to build a Reddit or Hacker News Style Web App in Rails
 
+![reddit 页面美化.gif](https://upload-images.jianshu.io/upload_images/7680238-b690a753cebe5c80.gif?imageMogr2/auto-orient/strip)
+
 # 本地新建一个专案，然后项目初始化
 ```
 rails new reddit
